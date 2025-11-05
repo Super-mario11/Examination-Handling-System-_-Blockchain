@@ -10,53 +10,144 @@
     <h1>Examination Handling System</h1>
 
     <section>
+        <h2>User Login (Simulated)</h2>
+        <form id="loginForm">
+            <label for="loginAddress">Your Blockchain Address:</label>
+            <input type="text" id="loginAddress" required><br><br>
+            <button type="submit">Login</button>
+        </form>
+        <p id="loginStatus"></p>
+        <p id="loggedInUserRole"></p>
+    </section>
+
+    <section>
         <h2>Contract Deployment</h2>
         <button id="deployContract">Deploy Contract</button>
         <p id="deploymentStatus"></p>
     </section>
 
-    <section>
-        <h2>Create Exam</h2>
-        <form id="createExamForm">
-            <label for="examName">Exam Name:</label>
-            <input type="text" id="examName" required><br><br>
-            <label for="totalMarks">Total Marks:</label>
-            <input type="number" id="totalMarks" required><br><br>
-            <label for="passingMarks">Passing Marks:</label>
-            <input type="number" id="passingMarks" required><br><br>
-            <button type="submit">Create Exam</button>
-        </form>
-        <p id="createExamStatus"></p>
-    </section>
+    <div id="teacherDashboard" style="display:none;">
 
-    <section>
-        <h2>Get Exam</h2>
-        <form id="getExamForm">
-            <label for="getExamId">Exam ID:</label>
-            <input type="number" id="getExamId" required><br><br>
-            <button type="submit">Get Exam</button>
-        </form>
-        <div id="examDetails"></div>
-        <p id="getExamStatus"></p>
-    </section>
+        <section>
+            <h2>Assign Role</h2>
+            <form id="assignRoleForm">
+                <label for="userAddress">User Address:</label>
+                <input type="text" id="userAddress" required><br><br>
+                <label for="role">Role:</label>
+                <select id="role">
+                    <option value="1">Teacher</option>
+                    <option value="2">Student</option>
+                </select><br><br>
+                <button type="submit">Assign Role</button>
+            </form>
+            <p id="assignRoleStatus"></p>
+        </section>
 
-    <section>
-        <h2>Update Exam</h2>
-        <form id="updateExamForm">
-            <label for="updateExamId">Exam ID:</label>
-            <input type="number" id="updateExamId" required><br><br>
-            <label for="updateExamName">Exam Name:</label>
-            <input type="text" id="updateExamName" required><br><br>
-            <label for="updateTotalMarks">Total Marks:</label>
-            <input type="number" id="updateTotalMarks" required><br><br>
-            <label for="updatePassingMarks">Passing Marks:</label>
-            <input type="number" id="updatePassingMarks" required><br><br>
-            <label for="updateActive">Active:</label>
-            <input type="checkbox" id="updateActive"><br><br>
-            <button type="submit">Update Exam</button>
-        </form>
-        <p id="updateExamStatus"></p>
-    </section>
+        <section>
+            <h2>Create Exam</h2>
+            <form id="createExamForm">
+                <label for="examName">Exam Name:</label>
+                <input type="text" id="examName" required><br><br>
+                <label for="totalMarks">Total Marks:</label>
+                <input type="number" id="totalMarks" required><br><br>
+                <label for="passingMarks">Passing Marks:</label>
+                <input type="number" id="passingMarks" required><br><br>
+                <button type="submit">Create Exam</button>
+            </form>
+            <p id="createExamStatus"></p>
+        </section>
+
+        <section>
+            <h2>Update Exam</h2>
+            <form id="updateExamForm">
+                <label for="updateExamId">Exam ID:</label>
+                <input type="number" id="updateExamId" required><br><br>
+                <label for="updateExamName">Exam Name:</label>
+                <input type="text" id="updateExamName" required><br><br>
+                <label for="updateTotalMarks">Total Marks:</label>
+                <input type="number" id="updateTotalMarks" required><br><br>
+                <label for="updatePassingMarks">Passing Marks:</label>
+                <input type="number" id="updatePassingMarks" required><br><br>
+                <label for="updateActive">Active:</label>
+                <input type="checkbox" id="updateActive"><br><br>
+                <button type="submit">Update Exam</button>
+            </form>
+            <p id="updateExamStatus"></p>
+        </section>
+
+        <section>
+            <h2>Grade Exam</h2>
+            <form id="gradeExamForm">
+                <label for="gradeExamId">Exam ID:</label>
+                <input type="number" id="gradeExamId" required><br><br>
+                <label for="studentAddress">Student Address:</label>
+                <input type="text" id="studentAddress" required><br><br>
+                <label for="grade">Grade:</label>
+                <input type="number" id="grade" required><br><br>
+                <button type="submit">Grade Exam</button>
+            </form>
+            <p id="gradeExamStatus"></p>
+        </section>
+    </div>
+
+    <div id="studentDashboard" style="display:none;">
+        <h2>Student Dashboard</h2>
+        <section>
+            <h2>Submit Exam</h2>
+            <form id="submitExamForm">
+                <label for="submitExamId">Exam ID:</label>
+                <input type="number" id="submitExamId" required><br><br>
+                <label for="answersHash">Answers Hash:</label>
+                <input type="text" id="answersHash" required><br><br>
+                <button type="submit">Submit Exam</button>
+            </form>
+            <p id="submitExamStatus"></p>
+        </section>
+
+        <section>
+            <h2>Get Submission</h2>
+            <form id="getSubmissionForm">
+                <label for="getSubmissionExamId">Exam ID:</label>
+                <input type="number" id="getSubmissionExamId" required><br><br>
+                <label for="getSubmissionStudentAddress">Student Address:</label>
+                <input type="text" id="getSubmissionStudentAddress" required><br><br>
+                <button type="submit">Get Submission</button>
+            </form>
+            <div id="submissionDetails"></div>
+            <p id="getSubmissionStatus"></p>
+        </section>
+    </div>
+
+    <div id="publicView">
+        <section>
+            <h2>Get Exam</h2>
+            <form id="getExamForm">
+                <label for="getExamId">Exam ID:</label>
+                <input type="number" id="getExamId" required><br><br>
+                <button type="submit">Get Exam</button>
+            </form>
+            <div id="examDetails"></div>
+            <p id="getExamStatus"></p>
+        </section>
+
+        <section>
+            <h2>All Exams</h2>
+            <button id="getAllExams">Get All Exams</button>
+            <div id="allExamsList"></div>
+            <p id="getAllExamsStatus"></p>
+        </section>
+
+        <section>
+            <h2>Get Role</h2>
+            <form id="getRoleForm">
+                <label for="getRoleAddress">User Address:</label>
+                <input type="text" id="getRoleAddress" required><br><br>
+                <button type="submit">Get Role</button>
+            </form>
+            <p id="userRole"></p>
+            <p id="getRoleStatus"></p>
+        </section>
+    </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
